@@ -7,6 +7,7 @@ import greenfoot.*;
 */
 public class MyWorld extends World {
     Label scoreLabel;
+    private int score = 0;
     public MyWorld() {
         
         super(600, 400, 1, false);
@@ -20,13 +21,18 @@ public class MyWorld extends World {
         scoreLabel = new Label(0, 30);
         addObject(scoreLabel, 30, 30);
         
+        HighScore highScore = new HighScore();
+        addObject(highScore, 535, 30);
+        
         createFood();
     }
-    
-    public int score = 0;
     public void increaseScore() {
         score+= 100;
         scoreLabel.setValue(score);
+    }
+    
+        public int getScore() {
+        return score;
     }
     
     public void gameOver() {
