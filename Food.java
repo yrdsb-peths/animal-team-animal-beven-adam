@@ -26,7 +26,6 @@ public class Food extends Actor
         if (count == 650) {
             speed ++;
             count = 0;
-            level+=1;
         }
     }
 }

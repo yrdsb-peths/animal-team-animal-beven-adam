@@ -8,12 +8,18 @@ import greenfoot.*;
 public class MyWorld extends World {
     Label scoreLabel;
     private int score = 0;
+    private GreenfootImage[] backgrounds = new GreenfootImage[5];
+    private int currentBackgroundIndex = 0;
+
     public MyWorld() {
         
         super(600, 400, 1, false);
         
-        GreenfootImage background = new GreenfootImage("Background.png");
-        setBackground(background);
+        for (int i = 0; i < backgrounds.length; i++) {
+            backgrounds[i] = new GreenfootImage("bg" + (i+1) + ".png");
+        }
+        setBackground(backgrounds[0]); 
+
         
         Animal animal = new Animal();
         addObject(animal, 300, 300);
@@ -29,10 +35,16 @@ public class MyWorld extends World {
     public void increaseScore() {
         score+= 100;
         scoreLabel.setValue(score);
+        int newBackgroundIndex = score / 400;
+        if (newBackgroundIndex < backgrounds.length && newBackgroundIndex != currentBackgroundIndex) {
+            currentBackgroundIndex = newBackgroundIndex;
+            setBackground(backgrounds[currentBackgroundIndex]);
+        }
     }
     
         public int getScore() {
         return score;
+        
     }
     
     public void gameOver() {
@@ -46,4 +58,5 @@ public class MyWorld extends World {
         int y = 0;
         addObject(food, x, y);
     }
+    
 }
