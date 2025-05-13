@@ -5,7 +5,6 @@ public class Food extends Actor
     GreenfootImage fish = new GreenfootImage("fish.png");
     static int count = 0;
     static int speed = 1;
-
     public void act()
     {
         setImage(fish);
@@ -27,6 +26,7 @@ public class Food extends Actor
         if (count == 650) {
             speed ++;
             count = 0;
+            level+=1;
         }
     }
 }
