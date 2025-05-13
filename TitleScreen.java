@@ -19,7 +19,7 @@ public class TitleScreen extends World
     {
         super(600, 400, 1);
         
-        GreenfootImage background = new GreenfootImage("Background.png");
+        GreenfootImage background = new GreenfootImage("bg1.png");
         setBackground(background);
         
         addObject(instructionLabel, 300, 250);
